@@ -11,7 +11,7 @@ html {
 }
 
 .bg {
-    background: url("images/signup.jpg") no-repeat center center fixed;
+    background: url(images/signup.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     filter: blur(8px);
