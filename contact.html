@@ -31,11 +31,42 @@
         </div>
        
 
-        <button class="btn">Send</button>
-        <a href="blog.html"><button class="btn">Back</button></a>
+        <button class="btn" onclick="sendEmail()">Send</button>
+        <a href="index.html"><button class="btn">Back</button></a>
     </div>
 
 
 </body>
+<script>
+    function sendEmail() {
+            var fname = document.getElementById("fname").value 
+            var lname = document.getElementById("lname").value 
+            var email = document.getElementById("email").value 
+            var query = document.getElementById("query").value 
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "btrssoftware@gmail.com",
+                Password: "btrs@123",
+                To: "btrssoftware@gmail.com",
+                From: document.getElementById("email").value,
+                Subject: " Blog query",
+                Body: "Query from " + fname + " " + lname + "\n" +"Query Detail: "+query,
+               
+            })
+                .then(
+                    message => {
+                        //console.log (message);
+                        if (message == 'OK') {
+                            alert('Your query has been sent. Thank you for connecting.');
+                        }
+                        else {
+                            console.error(message);
+                            alert('There is error at Sending your query. Try again later...')
 
+                        }
+
+                    }
+                );
+                }
+</script>
 </html>
